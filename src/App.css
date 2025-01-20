@@ -1,38 +1,461 @@
-.App {
+/* App.css */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset and basic styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #c64646;
+}
+
+/* Header */
+.header {
+  background-color: #000000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  padding: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+nav {
+  padding-right: 30px;
+}
+
+.header nav a {
+  margin: 0 1rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+.header nav a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #c64646;
+  transition: width 0.3s ease-in-out;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.header nav a:hover::after {
+  width: 100%;
+  color: #c64646;
+}
+
+/* Portfolio Section */
+
+.portfolio h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+
+.portfolio {
+  padding: 2rem;
+  background-color: #ffffff9c;
+  text-align: center;
+  background-image: url("images/back.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.portfolio-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Custom horizontal scrollbar */
+.portfolio-grid::-webkit-scrollbar {
+  height: 10px; /* Horizontal scrollbar height */
+}
+
+.portfolio-grid::-webkit-scrollbar-thumb {
+  background-color: #f79090;
+  border-radius: 5px;
+  border: 2px solid #ffffff; /* A border for better aesthetics */
+}
+
+.portfolio-grid::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* Scroll buttons */
+.portfolio-scroll-buttons {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.scroll-button {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-button:hover {
+  background-color: #f79090;
+  color: white;
+  transform: scale(1.1);
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  color: black;
+}
+
+.portfolio-thumbnail {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  opacity: 0.6;
+  transition: opacity 0.1s ease; /* Smooth opacity change */
+}
+
+.portfolio-item:hover .portfolio-thumbnail {
+  opacity: 0.8; /* Fully opaque on hover */
+}
+
+.portfolio-item:hover {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+.portfolio-item h3 {
+  font-size: 1.2rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.portfolio-grid {
+  display: flex; /* Horizontal scrolling */
+  gap: 1.5rem; /* Spacing between items */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling */
+  padding: 1rem; /* Add padding around the grid */
+  width: 100%; /* Ensure the grid uses full width */
+}
+
+.portfolio-item {
+  flex: 0 0 auto; /* Prevent items from shrinking or growing */
+  background-color: #f8f9fa49;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  color: white;
+  width: 250px; /* Fixed width for items */
+  min-width: 250px; /* Ensures consistent size in flexbox */
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  color: black;
+}
+
+.portfolio-thumbnail {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  opacity: 0.6;
+  transition: opacity 0.3s ease; /* Smooth opacity change */
+}
+
+.portfolio-item:hover .portfolio-thumbnail {
+  opacity: 0.8; /* More visible on hover */
+}
+
+
+.portfolio-item p {
+  font-size: 0.9rem;
+  padding: 0 1rem;
+}
+
+.portfolio-item a {
+  display: inline-block;
+  margin: 1rem 0;
+  color: #f79090;
+  font-weight: bold;
+}
+.portfolio-item:hover  a {
+  color: #c64646;
+}
+
+/* Pricing Section */
+.pricing {
+  padding: 2rem;
+  background-color: #e9ecef;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pricing h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+  justify-items: center;
+}
+
+.pricing-plan {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 300px;
+  width: 300px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.pricing-plan:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-plan .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #c64646;
+}
+
+.pricing-plan ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pricing-plan li {
+  margin: 0.5rem 0;
+}
+
+/* Contact Section */
+
+/* Footer */
+.footer {
+  padding: 1rem;
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+}
+.logo {
+  height: 50px;
+}
+.logo-div {
+  display: flex;
+  gap: 10px;
+}
+/* Slider styles */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  padding-top: 90px;
+}
+
+.slides {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-image 0.5s ease-in-out;
+}
+
+.slider-text {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1.2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Navigation buttons */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.prev {
+  left: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.next {
+  right: 10px;
+}
+
+.prev:hover,
+.next:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Dots */
+.dots {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
   display: flex;
-  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dot.active,
+.dot:hover {
+  background: white;
+}
+.footer {
+  background-color: #343a40;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 1rem;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.contact-info p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+}
+
+.contact-info a {
+  color: #c64646;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+.contact-info {
+  border-bottom: 1px solid white;
+  padding: 10px;
+}
+
+.social-media {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-media a {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s;
+}
+
+.social-media a:hover {
+  transform: scale(1.2);
+}
+.pppp {
+  color: #c64646;
+}
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #c64646;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.scroll-to-top:hover {
+  background-color: #822424;
+  transform: scale(1.1);
 }
+
