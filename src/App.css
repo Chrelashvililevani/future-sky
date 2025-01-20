@@ -68,6 +68,97 @@ nav {
   color: #c64646;
 }
 
+/* Base styles for the navigation menu */
+.nav-menu {
+  display: flex; /* Default for large screens */
+  opacity: 0; /* Start hidden */
+  pointer-events: none; /* Disable interactions when hidden */
+  transform: translateY(-100%); /* Slide out of view */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transitions */
+}
+
+/* Menu links */
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.nav-menu a:hover {
+  color: #c64646;
+}
+
+/* Toggle the dropdown menu visibility */
+.nav-menu.open {
+  opacity: 1; /* Fully visible */
+  pointer-events: auto; /* Enable interactions */
+  transform: translateY(0); /* Slide into view */
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+  z-index: 200;
+  padding-right: 50px;
+}
+
+/* Responsive Dropdown Menu */
+@media (max-width: 1000px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: flex; /* Ensure flex is used for layout */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 150;
+  }
+
+  .nav-menu a {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+}
+
+/* Restore Normal Menu for Large Screens */
+@media (min-width: 1001px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    position: static;
+    opacity: 1; /* Always visible */
+    pointer-events: auto;
+    transform: none;
+    height: auto;
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .nav-menu a {
+    margin: 0 1rem;
+    font-size: 1rem;
+  }
+}
+
+
+
 /* Portfolio Section */
 
 .portfolio h2 {

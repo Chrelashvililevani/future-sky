@@ -79,7 +79,11 @@ const pricingPlans = [
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % sliderItems.length);
@@ -144,12 +148,15 @@ function App() {
           <img src="images/logo.png" className="logo" alt="Future Sky Logo" />
           <h1>Future Sky</h1>
         </div>
-        <nav>
-          <a href="#portfolio">Portfolio</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#about">About Us</a>
-          <a href="#contact">Contact</a>
+        <nav className={`nav-menu ${isMenuOpen ? "open" : ""}`}>
+          <a href="#portfolio" onClick={() => setIsMenuOpen(false)}>Portfolio</a>
+          <a href="#pricing" onClick={() => setIsMenuOpen(false)}>Pricing</a>
+          <a href="#about" onClick={() => setIsMenuOpen(false)}>About Us</a>
+          <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
         </nav>
+        <span className="menu-toggle" onClick={toggleMenu}>
+          {isMenuOpen ? "✕" : "☰"}
+        </span>
       </header>
 
       {/* Slider Section */}
