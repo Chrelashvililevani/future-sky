@@ -59,19 +59,19 @@ const portfolioItems = [
 const pricingPlans = [
   {
     name: "Basic Package",
-    price: "$300",
+    price: "300$",
     features: ["Single-page design", "Responsive layout", "Basic SEO"],
     image: "./images/basic.jpg",
   },
   {
     name: "Standard Package",
-    price: "$600",
+    price: "600$",
     features: ["Multi-page website", "Custom design", "Standard SEO"],
     image: "./images/standard.jpg",
   },
   {
     name: "Premium Package",
-    price: "$1200",
+    price: "1200$",
     features: ["E-commerce functionality", "Advanced SEO", "1 year support"],
     image: "./images/premium.jpg",
   },
@@ -249,8 +249,8 @@ function App() {
           <div className="footer-content">
             <div className="contact-info">
               <p>Contact Us:</p>
-              <p>Email: <a href="mailto:info@futuresky.com">info@futuresky.com</a></p>
-              <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+              <p>Email: <a href="mailto:info@futuresky.com">chrelashvililevani@yahoo.com</a></p>
+              <p>Phone: <a href="tel:+1234567890">+995 558 79 77 78</a></p>
               <p className="pppp">&copy; 2025 Future Sky. All rights reserved.</p>
 
             </div>
