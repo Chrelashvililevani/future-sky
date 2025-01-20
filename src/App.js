@@ -80,6 +80,7 @@ const pricingPlans = [
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % sliderItems.length);
   };
@@ -101,24 +102,6 @@ function App() {
     return () => clearInterval(slideInterval); // Cleanup interval on unmount
   }, []);
 
-  const [showScrollButton, setShowScrollButton] = useState(false);
-
-  // Track scroll position to toggle visibility of the button
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setShowScrollButton(true);
-      } else {
-        setShowScrollButton(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const [showScroll, setShowScroll] = useState(false);
 
